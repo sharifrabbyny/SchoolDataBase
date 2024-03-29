@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -260,8 +262,8 @@ public class Driver_SchoolDB {
         f1.addCourseTaught(c2);
         
         //Adding 2 new Courses to a Student object
-        s1.addCourseTaken(c3);
         s1.addCourseTaken(c1);
+        s1.addCourseTaken(c2);
         
         //Adding an array of 2 Courses to a Faculty object
         Course[] coursesArray = new Course[] {c1,c2};
@@ -293,25 +295,84 @@ public class Driver_SchoolDB {
         //query the Faculty object for the Course to determine whether the Faculty object teaches it or not.
         
         //Determine which Faculty object teaches the most and the least courses.
+        
         //Determine which Course is the minimum of all Course objects in the catalog.
         //Determine which Course is the maximum of all Course objects in the catalog.
         //Determine which Student has the most and least credits.
         
-        //Display all the Objects using toString on the console (this includes existing plus recently added)
-      //  c1.toString();
-       // c2.toString();
-        //c3.toString();
-       // f1.toString();
-       // f2.toString();
-        //f3.toString();
-        //g1.toString();
-        //g2.toString();
-        //g3.toString();
-        //s1.toString();
-        //s2.toString();
-        //s3.toString();
+        //Display all the Objects using toString on the console 
+        System.out.println(c1.toString());
+        System.out.println(c2.toString());
+        System.out.println(c3.toString());
+        System.out.println(f1.toString());
+        System.out.println(f2.toString());
+        System.out.println(f3.toString());
+        System.out.println(g1.toString());
+        System.out.println(g2.toString());
+        System.out.println(g3.toString());
+        System.out.println(s1.toString());
+        System.out.println(s2.toString());
+        System.out.println(s3.toString());
+        
+        // Write all of the Object details to a plain text output file
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("SchoolDB_Updated.txt"));
+
+            // Writing Courses
+            writer.write("COURSES:");
+            writer.newLine();
+            writer.write(c1.toString());
+            writer.newLine();
+            writer.write(c2.toString());
+            writer.newLine();
+            writer.write(c3.toString());
+            writer.newLine();
+
+            // Writing Faculty
+            writer.write("FACULTY:");
+            writer.newLine();
+            writer.write(f1.toString());
+            writer.newLine();
+            writer.write(f2.toString());
+            writer.newLine();
+            writer.write(f3.toString());
+            writer.newLine();
+
+            // Writing GeneralStaff
+            writer.write("GENERAL STAFF:");
+            writer.newLine();
+            writer.write(g1.toString());
+            writer.newLine();
+            writer.write(g2.toString());
+            writer.newLine();
+            writer.write(g3.toString());
+            writer.newLine();
+
+            // Writing Students
+            writer.write("STUDENTS:");
+            writer.newLine();
+            writer.write(s1.toString());
+            writer.newLine();
+            writer.write(s2.toString());
+            writer.newLine();
+            writer.write(s3.toString());
+            writer.newLine();
+
+            writer.close();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        
+        
+        
+        
+        
 
 	}
+	
+	
         
         
 	
